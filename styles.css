@@ -1,13 +1,10 @@
 :root {
   --background: #080d15;
-  --background-raised: #0d1522;
   --line: rgba(152, 177, 210, 0.16);
   --text: #edf3fb;
   --text-muted: #a1b0c5;
   --accent: #69b7db;
   --accent-bright: #90d5ee;
-  --accent-dim: rgba(105, 183, 219, 0.14);
-  --shadow: rgba(0, 0, 0, 0.44);
 }
 
 * {
@@ -58,107 +55,98 @@ body::before {
   flex-direction: column;
   justify-content: center;
   max-width: 58rem;
-  padding: clamp(3.25rem, 9vh, 6.5rem) 0 4.5rem;
+  padding: clamp(2.6rem, 7vh, 5rem) 0 clamp(2.8rem, 5vh, 3.8rem);
 }
 
 .brandmark {
   display: grid;
   place-items: center;
-  width: 4.75rem;
-  height: 4.75rem;
-  margin-bottom: clamp(2.6rem, 7vh, 4.6rem);
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: clamp(2.1rem, 4vh, 2.8rem);
   overflow: hidden;
-  border: 1px solid rgba(140, 175, 207, 0.18);
-  border-radius: 1.1rem;
-  background: linear-gradient(145deg, #eef3f7, #bec9d3);
-  box-shadow: 0 1.25rem 3rem var(--shadow);
+  border: 1px solid rgba(140, 175, 207, 0.12);
+  border-radius: 0.9rem;
+  background: rgba(105, 183, 219, 0.035);
+  box-shadow: inset 0 1px 0 rgba(237, 243, 251, 0.035);
 }
 
 .brandmark img {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 152%;
+  height: 152%;
   object-fit: cover;
+  filter: invert(1) brightness(1.18);
+  opacity: 0.94;
 }
 
 .status {
   display: inline-flex;
   align-items: center;
   align-self: flex-start;
-  gap: 0.65rem;
-  margin-bottom: 1.65rem;
-  color: var(--accent-bright);
-  font-size: 0.78rem;
+  margin-bottom: clamp(1.3rem, 3vh, 1.6rem);
+  color: var(--text-muted);
+  font-size: 0.76rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-}
-
-.status-dot {
-  width: 0.48rem;
-  height: 0.48rem;
-  border-radius: 50%;
-  background-color: var(--accent);
-  box-shadow: 0 0 0.85rem var(--accent);
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(3.5rem, 9vw, 6.6rem);
+  font-size: clamp(3.25rem, 7.8vw, 5.8rem);
   font-weight: 650;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.06em;
   line-height: 0.98;
 }
 
 .disciplines {
   max-width: 54rem;
-  margin: clamp(1.5rem, 3vw, 2rem) 0 0;
+  margin: clamp(1.15rem, 2.5vw, 1.55rem) 0 0;
   color: var(--accent-bright);
-  font-size: clamp(0.9rem, 1.5vw, 1.06rem);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  line-height: 1.9;
-  text-transform: uppercase;
+  font-size: clamp(0.95rem, 1.45vw, 1.06rem);
+  font-weight: 450;
+  letter-spacing: 0.005em;
+  line-height: 1.75;
 }
 
 .disciplines span {
-  padding: 0 0.38rem;
+  padding: 0 0.42rem;
   color: var(--text-muted);
 }
 
 .announcement {
-  margin: clamp(2.8rem, 7vh, 4.4rem) 0 0.8rem;
-  font-size: clamp(1.55rem, 3vw, 2.1rem);
+  margin: clamp(2rem, 4vh, 2.75rem) 0 0.68rem;
+  font-size: clamp(1.45rem, 2.5vw, 1.9rem);
   font-weight: 500;
   letter-spacing: -0.035em;
 }
 
 .positioning {
-  max-width: 40rem;
+  max-width: 42rem;
   margin: 0;
   color: var(--text-muted);
-  font-size: clamp(1rem, 1.7vw, 1.16rem);
-  line-height: 1.72;
+  font-size: clamp(1rem, 1.55vw, 1.1rem);
+  line-height: 1.68;
 }
 
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: clamp(2.65rem, 6vh, 3.8rem);
+  gap: 0.55rem;
+  margin-top: clamp(2rem, 4vh, 2.6rem);
 }
 
 .links a {
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
-  min-width: 7.8rem;
-  padding: 0.92rem 1.1rem;
+  gap: 0.48rem;
+  padding: 0.64rem 0.88rem;
   border: 1px solid var(--line);
-  border-radius: 0.72rem;
+  border-radius: 999px;
   color: var(--text);
-  background: var(--accent-dim);
-  font-size: 0.94rem;
+  background: rgba(105, 183, 219, 0.045);
+  font-size: 0.91rem;
   font-weight: 500;
   text-decoration: none;
   transition:
@@ -169,12 +157,12 @@ h1 {
 
 .links a span {
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .links a:hover {
   border-color: rgba(105, 183, 219, 0.42);
-  background: rgba(105, 183, 219, 0.2);
+  background: rgba(105, 183, 219, 0.12);
   transform: translateY(-1px);
 }
 
@@ -204,14 +192,14 @@ h1 {
   }
 
   .hero {
-    padding-top: 2.6rem;
-    padding-bottom: 3.2rem;
+    padding-top: 2.2rem;
+    padding-bottom: 2.75rem;
   }
 
   .brandmark {
-    width: 4.15rem;
-    height: 4.15rem;
-    margin-bottom: 3.2rem;
+    width: 3.7rem;
+    height: 3.7rem;
+    margin-bottom: 2.3rem;
   }
 
   .disciplines span {
@@ -219,8 +207,7 @@ h1 {
   }
 
   .links a {
-    flex: 1 1 calc(50% - 0.4rem);
-    justify-content: space-between;
+    padding-inline: 0.8rem;
   }
 
   .footer {
