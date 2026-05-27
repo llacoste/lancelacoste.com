@@ -4,7 +4,7 @@ This repository contains the temporary personal website for `lancelacoste.com`.
 
 ## Scope
 
-- Keep the site static: HTML, CSS, and minimal vanilla JavaScript only.
+- Keep the site static: semantic HTML and CSS; add vanilla JavaScript only when required for meaningful behavior.
 - Do not add dependencies, package managers, frameworks, build tools, or generated site output.
 - Preserve a professional, restrained visual style appropriate for a platform and infrastructure engineering portfolio.
 - Keep changes straightforward to replace when a fuller portfolio site is introduced.
@@ -14,7 +14,7 @@ This repository contains the temporary personal website for `lancelacoste.com`.
 - Maintain a dark, low-noise interface with subtle cool accents and clear hierarchy.
 - Favor strong typography, generous spacing, and accessible contrast over decorative effects.
 - Keep the layout responsive and keyboard-accessible on every content change.
-- Use `icon.png` as the existing monogram asset; do not replace or redraw it without direction.
+- Use `icon.png` as the favicon/social-preview monogram asset; do not add it visibly to the page without direction.
 
 ## Content
 
@@ -27,7 +27,7 @@ This repository contains the temporary personal website for `lancelacoste.com`.
 
 - GitHub Pages deploys the repository root through `.github/workflows/deploy.yml`.
 - Preserve `CNAME` with `lancelacoste.com` as its only line unless the site's domain changes.
-- Keep DNS and Pages configuration instructions current in `README.md` when deployment behavior changes.
+- Keep the public README concise; avoid provider-specific operations notes unless requested.
 
 ## Conventions
 

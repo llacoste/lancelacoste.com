@@ -3,8 +3,8 @@
 Personal website for [lancelacoste.com](https://lancelacoste.com).
 
 This repository currently contains a focused landing page built with semantic
-HTML, CSS, and minimal vanilla JavaScript. It is intentionally dependency-free
-and serves as the foundation for a broader engineering portfolio.
+HTML and CSS. It is intentionally dependency-free and serves as the
+foundation for a broader engineering portfolio.
 
 ## Preview
 
