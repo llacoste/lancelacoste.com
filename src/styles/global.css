@@ -42,8 +42,8 @@ h1 { margin: 0; font-size: clamp(3.1rem, 7vw, 5.05rem); font-weight: 650; letter
 .links a { color: var(--text-secondary); font-size: 0.97rem; font-weight: 500; text-decoration-color: transparent; text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: 0.36rem; transition: color 170ms ease, text-decoration-color 170ms ease; }
 .links a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 .links a:focus-visible { border-radius: 0.12rem; outline: 2px solid var(--accent); outline-offset: 0.35rem; }
-.resume { display: flex; flex-direction: column; flex: 1 1 auto; padding-bottom: 1.5rem; }
-.resume-actions { display: flex; justify-content: flex-end; padding: 0 0 1rem; }
+.resume { position: relative; display: flex; flex-direction: column; flex: 1 1 auto; padding: 1rem 0 1.5rem; }
+.resume-download { position: absolute; top: 1.6rem; right: 0.85rem; z-index: 5; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45); }
 .btn { text-decoration: none; border: 1px solid var(--border); padding: 0.45rem 0.9rem; border-radius: 6px; font-size: 0.9rem; color: var(--text); transition: border-color 170ms ease, color 170ms ease; }
 .btn:hover { border-color: var(--accent); color: var(--accent); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: #06101d; font-weight: 600; }
@@ -59,6 +59,13 @@ h1 { margin: 0; font-size: clamp(3.1rem, 7vw, 5.05rem); font-weight: 650; letter
 .post-list li { display: flex; flex-direction: column; gap: 0.2rem; }
 .post-list a { color: var(--text); text-decoration: none; font-size: 1.15rem; font-weight: 550; }
 .post-list a:hover { color: var(--accent); }
+.coming-soon { color: var(--text-muted); font-size: 1.15rem; }
+.site-footer { width: var(--container); margin: 0 auto; padding: 2rem 0 2.5rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
+.footer-contact { display: flex; flex-wrap: wrap; gap: clamp(1.2rem, 4vw, 1.8rem); }
+.footer-contact a { color: var(--text-secondary); font-size: 0.95rem; font-weight: 500; text-decoration-color: transparent; text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: 0.34rem; transition: color 170ms ease, text-decoration-color 170ms ease; }
+.footer-contact a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+.footer-contact a:focus-visible { border-radius: 0.12rem; outline: 2px solid var(--accent); outline-offset: 0.35rem; }
+.footer-meta { margin: 0; color: var(--text-muted); font-size: 0.85rem; }
 @media (max-width: 640px) {
   :root { --container: min(100% - 2.5rem, 70rem); }
   .site-header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }

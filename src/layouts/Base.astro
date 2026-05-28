@@ -33,5 +33,13 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
     <main>
       <slot />
     </main>
+    <footer class="site-footer">
+      <nav class="footer-contact" aria-label="Contact">
+        <a href="https://github.com/llacoste" rel="me noopener" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/lancelacoste" rel="me noopener" target="_blank">LinkedIn</a>
+        <a href="mailto:lance.lacoste@proton.me">Email</a>
+      </nav>
+      <p class="footer-meta">&copy; {new Date().getFullYear()} Lance Lacoste</p>
+    </footer>
   </body>
 </html>
