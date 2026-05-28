@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const projects = (await getCollection('projects', ({ data }) => !data.draft))
+  .sort((a, b) => (b.data.date?.valueOf() ?? 0) - (a.data.date?.valueOf() ?? 0));
+---
+<Base title="Projects — Lance Lacoste">
+  <section class="prose">
+    <h1>Projects</h1>
+    {projects.length === 0 && <p>No projects yet.</p>}
+    <ul class="post-list">
+      {projects.map((p) => (
+        <li>
+          <a href={`/projects/${p.id}`}>{p.data.title}</a>
+          {p.data.description && <span>{p.data.description}</span>}
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>
