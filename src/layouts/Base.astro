@@ -5,8 +5,7 @@ const { title = 'Lance Lacoste', description = 'Lance Lacoste designs reliable p
 const path = Astro.url.pathname;
 const nav = [
   { href: '/', label: 'Home' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/blog', label: 'Blog' },
+  { href: '/#work', label: 'Work' },
   { href: '/resume', label: 'Resume' },
 ];
 const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
