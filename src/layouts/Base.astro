@@ -15,19 +15,22 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/png" href="/icon.png" />
     <link rel="canonical" href={new URL(path, Astro.site)} />
   </head>
-  <body>
+  <body class={path === '/' ? 'home' : undefined}>
     <header class="site-header">
-      <a class="brand" href="/">Lance Lacoste</a>
-      <nav class="site-nav" aria-label="Primary">
-        {nav.map((item) => (
-          <a href={item.href} class={isActive(item.href) ? 'active' : ''} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
-        ))}
-      </nav>
+      <div class="site-header-inner">
+        <a class="brand" href="/">Lance Lacoste</a>
+        <nav class="site-nav" aria-label="Primary">
+          {nav.map((item) => (
+            <a href={item.href} class={isActive(item.href) ? 'active' : ''} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+          ))}
+        </nav>
+      </div>
     </header>
     <main>
       <slot />
@@ -40,5 +43,16 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
       </nav>
       <p class="footer-meta">&copy; {new Date().getFullYear()} Lance Lacoste</p>
     </footer>
+    <script is:inline>
+      (function () {
+        if (!document.body.classList.contains('home')) return;
+        var mark = document.querySelector('.hero h1');
+        if (!mark || !('IntersectionObserver' in window)) return;
+        var obs = new IntersectionObserver(function (entries) {
+          document.body.classList.toggle('scrolled', !entries[0].isIntersecting);
+        }, { rootMargin: '-64px 0px 0px 0px', threshold: 0 });
+        obs.observe(mark);
+      })();
+    </script>
   </body>
 </html>
