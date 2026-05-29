@@ -1,13 +1,12 @@
 # lancelacoste.com Repository Instructions
 
-This repository contains the temporary personal website for `lancelacoste.com`.
+Personal website for `lancelacoste.com` — a **public** repo.
 
 ## Scope
 
-- Keep the site static: semantic HTML and CSS; add vanilla JavaScript only when required for meaningful behavior.
-- Do not add dependencies, package managers, frameworks, build tools, or generated site output.
+- The site is built with **Astro** (v5): pages in `src/pages`, a shared `Base.astro` layout, content collections for `blog` and `projects` (Markdown/MDX, configured in `src/content.config.ts`), styles in `src/styles/global.css`. Build with `npm run build`.
+- Keep dependencies and footprint minimal; don't add heavy UI frameworks or libraries without a clear reason.
 - Preserve a professional, restrained visual style appropriate for a platform and infrastructure engineering portfolio.
-- Keep changes straightforward to replace when a fuller portfolio site is introduced.
 
 ## Visual Direction
 
@@ -18,19 +17,27 @@ This repository contains the temporary personal website for `lancelacoste.com`.
 
 ## Content
 
-- Primary identity and positioning copy live in `index.html`.
+- Primary identity and positioning copy live in `src/pages/index.astro`; nav lives in `src/layouts/Base.astro`.
+- `blog/` and `projects/` are content collections — they render a coming-soon state while empty.
+- `/resume` (`src/pages/resume.astro`) embeds the résumé PDF served from the public mirror at `https://resume.lancelacoste.com/resume.pdf`. Don't commit a PDF here; it's owned by the résumé pipeline.
 - The current email contact is `lance.lacoste@proton.me`.
-- The LinkedIn URL is a placeholder until the canonical profile URL is confirmed.
-- `icon.png` is the site icon and brandmark asset.
+
+## IP guardrail
+
+This site is **public**. Do not reference employer-internal system codenames or
+confidential business/financial figures anywhere in content (projects, blog,
+résumé copy). The embedded résumé is generalized at its source (the private
+résumé repo); keep all public copy at that same generalized level. When in
+doubt, describe systems by function, not by internal name.
 
 ## Deployment
 
-- GitHub Pages deploys the repository root through `.github/workflows/deploy.yml`.
-- Preserve `CNAME` with `lancelacoste.com` as its only line unless the site's domain changes.
+- `.github/workflows/deploy.yml` builds the Astro site and deploys to GitHub Pages on push to `main`; PRs run a build check.
+- Preserve `public/CNAME` with `lancelacoste.com` as its only line unless the site's domain changes.
 - Keep the public README concise; avoid provider-specific operations notes unless requested.
 
 ## Conventions
 
-- Keep HTML semantic, CSS readable, and JavaScript limited to behavior that cannot be expressed in markup or styles.
-- Avoid unrelated refactors; this site is intentionally small and disposable.
-- Use Conventional Commits for repository history, such as `feat: add professional profile content`.
+- Use Conventional Commits (e.g. `feat: add projects index`).
+- Every change goes through a branch + PR, squash-merged to `main`.
+- Avoid unrelated refactors; keep changes focused.
