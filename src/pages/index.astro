@@ -1,10 +1,98 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const pillars = [
+  {
+    title: 'Platform & systems architecture',
+    body: 'Internal developer platforms, paved roads, and multi-tenant, event-driven systems — designed so teams self-serve and the platform largely runs itself.',
+  },
+  {
+    title: 'Cloud infrastructure & reliability',
+    body: 'AWS, Kubernetes, and Terraform. I bring infrastructure under code from near-zero coverage and build for self-healing reliability, SLOs, and observability.',
+  },
+  {
+    title: 'Delivery & enablement',
+    body: 'Paved-road CI/CD, self-service tooling, and standardized workflows — plus mentoring that raises the engineering baseline across teams.',
+  },
+];
+
+const work = [
+  {
+    name: 'Multi-Tenant Salesforce Synchronization Platform',
+    role: 'Sole architect & implementer',
+    org: 'Remembers',
+    stack: ['Elixir', 'Oban', 'AWS', 'Terraform'],
+    body: 'Bidirectional Salesforce synchronization with full per-tenant isolation across dozens of customer environments — each its own Terraform-provisioned stack. A self-healing, NOTIFY-driven recovery engine (concurrency-safe job claiming, idempotent upserts, backoff, dead-lettering) keeps hundreds of thousands of records a day in sync without manual intervention.',
+  },
+  {
+    name: 'Internal Self-Service Provisioning Platform',
+    role: 'Primary maintainer',
+    org: 'Remembers',
+    stack: ['Elixir', 'Phoenix LiveView', 'Kubernetes', 'Terraform'],
+    body: 'A self-service platform that lets non-engineers provision full customer environments — orchestrating Terraform, EKS, and GitHub Actions across hundreds of environments at over a hundred deployments a day. Built the guided new-instance wizard and rebuilt the config editor for instant load.',
+  },
+  {
+    name: 'Distributed Event Bus & Source of Truth',
+    role: 'Architected',
+    org: 'Veriforce',
+    stack: ['Kafka', 'Event Sourcing', 'Multi-Cluster DR'],
+    body: 'A Kafka-based event bus as the system of record for core business entities across hundreds of microservices — replacing brittle point-to-point integrations with a single durable, replayable event log, scaled into a highly available deployment with automated failover for disaster recovery.',
+  },
+];
 ---
 <Base title="Lance Lacoste | Platform Engineering & Cloud Architecture">
   <section class="hero" aria-label="Introduction">
-    <h1>Lance Lacoste</h1>
-    <p class="disciplines">Platform engineering, cloud infrastructure, and delivery systems.</p>
-    <p class="positioning">I design reliable platforms that help engineering teams ship faster and operate with confidence.</p>
+    <div class="hero-text">
+      <h1>Lance Lacoste</h1>
+      <p class="disciplines">Platform engineering, cloud infrastructure, and delivery systems.</p>
+      <p class="positioning">I build the foundational systems engineering teams depend on — consolidating sprawling, manual operations into reliable platforms that largely run themselves.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="/resume">View résumé</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <picture>
+        <source srcset="/headshot.webp" type="image/webp" />
+        <img src="/headshot.jpg" width="480" height="480" alt="Lance Lacoste" fetchpriority="high" decoding="async" />
+      </picture>
+    </figure>
+  </section>
+
+  <section class="band" aria-labelledby="what-h">
+    <h2 id="what-h" class="section-title">What I do</h2>
+    <div class="pillars">
+      {pillars.map((p) => (
+        <article class="pillar">
+          <h3>{p.title}</h3>
+          <p>{p.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="band" id="work" aria-labelledby="work-h">
+    <h2 id="work-h" class="section-title">Selected work</h2>
+    <p class="section-note">Platform systems I've designed and built, described by function — specifics on request.</p>
+    <div class="work-list">
+      {work.map((w) => (
+        <article class="work-card">
+          <div class="work-stack">{w.stack.map((s) => <span class="tag">{s}</span>)}</div>
+          <h3>{w.name}</h3>
+          <p class="work-role">{w.role} · {w.org}</p>
+          <p class="work-body">{w.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="band" id="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h" class="section-title">Get in touch</h2>
+    <p class="contact-lead">Always glad to talk platform architecture, reliability, and developer experience.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:lance.lacoste@proton.me">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/lancelacoste" rel="me noopener" target="_blank">LinkedIn</a>
+      <a class="btn" href="https://github.com/llacoste" rel="me noopener" target="_blank">GitHub</a>
+    </div>
   </section>
 </Base>
