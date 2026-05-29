@@ -83,6 +83,11 @@ h1 { margin: 0; font-size: clamp(3.1rem, 7vw, 5.05rem); font-weight: 650; letter
 .work-role { margin: 0 0 0.8rem; font-size: 0.85rem; font-weight: 500; color: var(--accent); }
 .work-body { margin: 0; color: var(--text-secondary); font-size: 0.96rem; line-height: 1.6; }
 .contact-lead { margin: 0 0 1.6rem; max-width: 36rem; color: var(--text-secondary); font-size: clamp(1.05rem, 1.8vw, 1.2rem); line-height: 1.55; }
+#contact { text-align: center; }
+#contact .contact-lead { margin-left: auto; margin-right: auto; }
+#contact .cta-row { justify-content: center; }
+.site-footer { width: var(--container); margin: 0 auto; padding: 1.6rem 0 2rem; text-align: center; }
+.site-footer p { margin: 0; color: var(--text-muted); font-size: 0.85rem; }
 .resume { position: relative; display: flex; flex-direction: column; flex: 1 1 auto; padding: 1rem 0 1.5rem; }
 .resume-download { position: absolute; top: 1.6rem; right: 0.85rem; z-index: 5; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45); }
 .btn { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border: 1px solid var(--border); padding: 0.45rem 0.9rem; border-radius: 6px; font-size: 0.9rem; color: var(--text); transition: border-color 170ms ease, color 170ms ease; }
