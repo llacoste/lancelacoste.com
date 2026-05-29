@@ -102,12 +102,13 @@ h1 { margin: 0; font-size: clamp(3.1rem, 7vw, 5.05rem); font-weight: 650; letter
 .post-list a { color: var(--text); text-decoration: none; font-size: 1.15rem; font-weight: 550; }
 .post-list a:hover { color: var(--accent); }
 .coming-soon { color: var(--text-muted); font-size: 1.15rem; }
-.site-footer { width: var(--container); margin: 0 auto; padding: 2rem 0 2.5rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
-.footer-contact { display: flex; flex-wrap: wrap; gap: clamp(1.2rem, 4vw, 1.8rem); }
-.footer-contact a { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--text-secondary); font-size: 0.95rem; font-weight: 500; text-decoration-color: transparent; text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: 0.34rem; transition: color 170ms ease, text-decoration-color 170ms ease; }
-.footer-contact a:hover { color: var(--accent); text-decoration-color: var(--accent); }
-.footer-contact a:focus-visible { border-radius: 0.12rem; outline: 2px solid var(--accent); outline-offset: 0.35rem; }
-.footer-meta { margin: 0; color: var(--text-muted); font-size: 0.85rem; }
+dialog.modal { position: fixed; inset: 0; margin: auto; padding: clamp(1.5rem, 4vw, 2.1rem); width: calc(100% - 2rem); max-width: 28rem; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); color: var(--text); box-shadow: 0 20px 55px rgba(0, 0, 0, 0.6); }
+dialog.modal::backdrop { background: rgba(2, 6, 12, 0.62); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+dialog.modal h2 { margin: 0 0 0.5rem; font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; color: var(--text); }
+dialog.modal > p { margin: 0 0 1.35rem; color: var(--text-secondary); font-size: 0.98rem; line-height: 1.55; max-width: none; }
+.modal-close { position: absolute; top: 0.75rem; right: 0.75rem; display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; padding: 0; border: 1px solid transparent; background: transparent; color: var(--text-muted); border-radius: 8px; cursor: pointer; transition: color 170ms ease, border-color 170ms ease; }
+.modal-close:hover { color: var(--text); border-color: var(--border); }
+.modal-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 @media (max-width: 860px) {
   .pillars { grid-template-columns: 1fr 1fr; }
 }

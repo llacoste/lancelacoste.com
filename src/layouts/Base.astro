@@ -37,23 +37,40 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
     <main>
       <slot />
     </main>
-    <footer class="site-footer">
-      <nav class="footer-contact" aria-label="Contact">
-        <a href="https://github.com/llacoste" rel="me noopener" target="_blank"><Icon name="github" />GitHub</a>
-        <a href="https://www.linkedin.com/in/lancelacoste" rel="me noopener" target="_blank"><Icon name="linkedin" />LinkedIn</a>
-        <a href="mailto:lance.lacoste@proton.me"><Icon name="mail" />Email</a>
-      </nav>
-      <p class="footer-meta">&copy; {new Date().getFullYear()} Lance Lacoste</p>
-    </footer>
+    <dialog id="contact-dialog" class="modal" aria-labelledby="contact-dialog-title">
+      <button class="modal-close" type="button" data-close aria-label="Close"><Icon name="x" size={18} /></button>
+      <h2 id="contact-dialog-title">Get in touch</h2>
+      <p>Always glad to talk platform architecture, reliability, and developer experience.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:lance.lacoste@proton.me"><Icon name="mail" />Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/lancelacoste" rel="me noopener" target="_blank"><Icon name="linkedin" />LinkedIn</a>
+        <a class="btn" href="https://github.com/llacoste" rel="me noopener" target="_blank"><Icon name="github" />GitHub</a>
+      </div>
+    </dialog>
     <script is:inline>
       (function () {
-        if (!document.body.classList.contains('home')) return;
-        var mark = document.querySelector('.hero h1');
-        if (!mark || !('IntersectionObserver' in window)) return;
-        var obs = new IntersectionObserver(function (entries) {
-          document.body.classList.toggle('scrolled', !entries[0].isIntersecting);
-        }, { rootMargin: '-64px 0px 0px 0px', threshold: 0 });
-        obs.observe(mark);
+        if (document.body.classList.contains('home')) {
+          var mark = document.querySelector('.hero h1');
+          if (mark && 'IntersectionObserver' in window) {
+            new IntersectionObserver(function (entries) {
+              document.body.classList.toggle('scrolled', !entries[0].isIntersecting);
+            }, { rootMargin: '-64px 0px 0px 0px', threshold: 0 }).observe(mark);
+          }
+        }
+        var dialog = document.getElementById('contact-dialog');
+        if (!dialog || typeof dialog.showModal !== 'function') return;
+        document.querySelectorAll('a[href="/#contact"]').forEach(function (el) {
+          el.addEventListener('click', function (e) {
+            e.preventDefault();
+            dialog.showModal();
+          });
+        });
+        dialog.addEventListener('click', function (e) {
+          if (e.target === dialog) dialog.close();
+        });
+        dialog.querySelectorAll('[data-close]').forEach(function (b) {
+          b.addEventListener('click', function () { dialog.close(); });
+        });
       })();
     </script>
   </body>
